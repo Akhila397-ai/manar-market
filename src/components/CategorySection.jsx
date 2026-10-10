@@ -1,5 +1,5 @@
 import { categories } from '../data/content.js';
-import Reveal from './Reveal.jsx';
+import { Reveal, Stagger, StaggerItem } from './Reveal.jsx';
 import CategoryCard from './CategoryCard.jsx';
 
 export default function CategorySection() {
@@ -12,13 +12,13 @@ export default function CategorySection() {
           <p className="section-lead">Everything for your everyday needs, thoughtfully organized.</p>
         </Reveal>
 
-        <div className="cat-grid">
-          {categories.map((category, i) => (
-            <Reveal key={category.id} className="cat-slot" delay={i * 0.08} y={40}>
+        <Stagger className="cat-grid">
+          {categories.map((category) => (
+            <StaggerItem key={category.id} className="cat-slot">
               <CategoryCard category={category} />
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

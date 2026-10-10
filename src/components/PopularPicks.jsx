@@ -1,5 +1,5 @@
 import { products } from '../data/content.js';
-import Reveal from './Reveal.jsx';
+import { Reveal, Stagger, StaggerItem } from './Reveal.jsx';
 import ProductCard from './ProductCard.jsx';
 
 export default function PopularPicks() {
@@ -12,13 +12,13 @@ export default function PopularPicks() {
           <p className="section-lead">A glimpse of the everyday essentials our shoppers reach for most.</p>
         </Reveal>
 
-        <div className="popular-grid">
-          {products.map((product, i) => (
-            <Reveal key={product.id} delay={(i % 3) * 0.1} y={40}>
+        <Stagger className="popular-grid">
+          {products.map((product) => (
+            <StaggerItem key={product.id}>
               <ProductCard product={product} />
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

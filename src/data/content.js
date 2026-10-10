@@ -1,26 +1,26 @@
 // All website content lives here with local imported assets.
-import heroFresh from '../assets/images/hero/hero-fresh.jpg';
-import heroGroceries from '../assets/images/hero/hero-groceries.jpg';
-import heroBeverages from '../assets/images/hero/hero-beverages.jpg';
-import heroHousehold from '../assets/images/hero/hero-household.jpg';
-import heroStaples from '../assets/images/hero/hero-staples.jpg';
+import heroFresh from '../assets/images/hero/hero-fresh.webp';
+import heroGroceries from '../assets/images/hero/hero-groceries.webp';
+import heroBeverages from '../assets/images/hero/hero-beverages.webp';
+import heroHousehold from '../assets/images/hero/hero-household.webp';
+import heroStaples from '../assets/images/hero/hero-staples.webp';
 
-import catFresh from '../assets/images/categories/cat-fresh.jpg';
-import catGroceries from '../assets/images/categories/cat-groceries.jpg';
-import catBeverages from '../assets/images/categories/cat-beverages.jpg';
-import catHousehold from '../assets/images/categories/cat-household.jpg';
-import catPersonalCare from '../assets/images/categories/cat-personal-care.jpg';
-import catSnacks from '../assets/images/categories/cat-snacks.jpg';
+import catFresh from '../assets/images/categories/cat-fresh.webp';
+import catGroceries from '../assets/images/categories/cat-groceries.webp';
+import catBeverages from '../assets/images/categories/cat-beverages.webp';
+import catHousehold from '../assets/images/categories/cat-household.webp';
+import catPersonalCare from '../assets/images/categories/cat-personal-care.webp';
+import catSnacks from '../assets/images/categories/cat-snacks.webp';
 
-import productMilk from '../assets/images/products/milk.jpg';
-import productRice from '../assets/images/products/rice.jpg';
-import productFruits from '../assets/images/products/fruits.jpg';
-import productJuices from '../assets/images/products/juices.jpg';
-import productSnacks from '../assets/images/products/snacks.jpg';
-import productHousehold from '../assets/images/products/household.jpg';
+import productMilk from '../assets/images/products/milk.webp';
+import productRice from '../assets/images/products/rice.webp';
+import productFruits from '../assets/images/products/fruits.webp';
+import productJuices from '../assets/images/products/juices.webp';
+import productSnacks from '../assets/images/products/snacks.webp';
+import productHousehold from '../assets/images/products/household.webp';
 
-import aboutImg from '../assets/images/about/about.jpg';
-import ctaImg from '../assets/images/cta/cta.jpg';
+import aboutImg from '../assets/images/about/about.webp';
+import ctaImg from '../assets/images/cta/cta.webp';
 
 export const company = {
   name: 'Manar Market',
@@ -34,10 +34,10 @@ export const company = {
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
+  { label: 'About Us', href: '#about' },
   { label: 'Categories', href: '#categories' },
   { label: 'Popular', href: '#popular' },
-  { label: 'Why Us', href: '#why-us' },
+  { label: 'Our Stores', href: '#stores' },
   { label: 'Contact', href: '#contact' },
 ];
 

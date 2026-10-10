@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { heroSlides } from '../data/content.js';
 import SafeImage from './SafeImage.jsx';
@@ -8,20 +8,11 @@ import { EASE } from './Reveal.jsx';
 const SLIDE_MS = 6000;
 const pad = (n) => String(n).padStart(2, '0');
 
-const textContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
-  exit: { opacity: 0, y: -12, transition: { duration: 0.35 } },
-};
-const textItem = {
-  hidden: { opacity: 0, y: 26 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } },
-};
-
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const total = heroSlides.length;
   const slide = heroSlides[index];
+  const shouldReduceMotion = useReducedMotion();
 
   // Auto-advance. Restarts whenever the index changes (including manual navigation).
   useEffect(() => {
@@ -30,6 +21,30 @@ export default function Hero() {
   }, [index, total]);
 
   const go = (dir) => setIndex((i) => (i + dir + total) % total);
+
+  const textContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        delayChildren: shouldReduceMotion ? 0 : 0.15,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : -12,
+      transition: { duration: shouldReduceMotion ? 0 : 0.35 },
+    },
+  };
+
+  const textItem = {
+    hidden: { opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 26 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0 : 0.9, ease: EASE },
+    },
+  };
 
   return (
     <section id="home" className="hero">
@@ -50,7 +65,7 @@ export default function Hero() {
                 <motion.a
                   href="#categories"
                   className="btn btn-primary"
-                  whileHover={{ y: -2 }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
                   transition={{ duration: 0.3 }}
                 >
                   {slide.primaryAction}
@@ -59,7 +74,7 @@ export default function Hero() {
                 <motion.a
                   href="#contact"
                   className="btn btn-ghost"
-                  whileHover={{ y: -2 }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
                   transition={{ duration: 0.3 }}
                 >
                   {slide.secondaryAction}
@@ -84,7 +99,7 @@ export default function Hero() {
                 className="progress-bar"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: SLIDE_MS / 1000, ease: 'linear' }}
+                transition={{ duration: shouldReduceMotion ? 0 : SLIDE_MS / 1000, ease: 'linear' }}
               />
             </div>
           </div>
@@ -95,10 +110,10 @@ export default function Hero() {
             <motion.div
               key={slide.id}
               className="hero-image"
-              initial={{ opacity: 0, scale: 1.1 }}
+              initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.4, ease: EASE }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1.4, ease: EASE }}
             >
               <SafeImage src={slide.image} alt={slide.imageAlt} loading="eager" />
             </motion.div>

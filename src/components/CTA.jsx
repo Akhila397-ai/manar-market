@@ -1,20 +1,18 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SafeImage from './SafeImage.jsx';
-import Reveal from './Reveal.jsx';
-import ctaImg from '../assets/images/cta/cta.jpg';
+import { Reveal } from './Reveal.jsx';
+import { ParallaxLayer } from './Parallax.jsx';
+import ctaImg from '../assets/images/cta/cta.webp';
 
 export default function CTA() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section ref={ref} className="cta">
-      <motion.div className="cta-bg" style={{ y }}>
+    <section className="cta">
+      <ParallaxLayer className="cta-bg">
         <SafeImage src={ctaImg} alt="Manar Market shopping aisle" />
-      </motion.div>
+      </ParallaxLayer>
       <div className="cta-overlay" aria-hidden="true" />
 
       <div className="container">
@@ -29,7 +27,7 @@ export default function CTA() {
           <motion.a
             href="#categories"
             className="btn btn-light"
-            whileHover={{ y: -2 }}
+            whileHover={shouldReduceMotion ? {} : { y: -2 }}
             transition={{ duration: 0.3 }}
           >
             Explore Categories

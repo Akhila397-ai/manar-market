@@ -1,55 +1,95 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { company } from '../data/content.js';
-import Reveal from './Reveal.jsx';
-
-const cards = [
-  { icon: MapPin, label: 'Address', value: company.address, href: null },
-  { icon: Phone, label: 'Phone', value: company.phone, href: `tel:${company.phoneRaw}` },
-  { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}` },
-];
 
 export default function Contact() {
+  const email = company?.email || 'info@manarmarket.ae';
+  const phone = company?.phone || '067491880';
+  const phoneRaw = company?.phoneRaw || '067491880';
+  const address = company?.address || 'Industrial 2, Ajman, UAE';
+  const mapUrl = `https://maps.google.com/?q=${encodeURIComponent(address)}`;
+
   return (
-    <section id="contact" className="section">
-      <div className="container">
-        <Reveal as="header" className="section-head">
-          <span className="eyebrow">Contact</span>
-          <h2 className="section-title">Visit or Get in Touch</h2>
-          <p className="section-lead">Reach out to Manar Market using the details below.</p>
-        </Reveal>
+    <section id="contact" className="contact-section">
+      <div className="container contact-container">
+        {/* Existing heading section preserved exactly */}
+        <header className="contact-header">
+          <span className="contact-eyebrow">We're Here to Help</span>
+          <h2 className="contact-title">Let's Talk.</h2>
+          <p className="contact-description">
+            Good service starts with a conversation. We'd love to hear from you.
+          </p>
+        </header>
 
+        {/* Thin light-grey divider */}
+        <div className="contact-divider" aria-hidden="true" />
+
+        {/* Three evenly spaced columns directly below introduction */}
         <div className="contact-grid">
-          {cards.map((card, i) => {
-            const Icon = card.icon;
-            const inner = (
-              <>
-                <div className="feature-icon">
-                  <Icon size={22} />
-                </div>
-                <small>{card.label}</small>
-                <strong>{card.value}</strong>
-              </>
-            );
-            return (
-              <Reveal key={card.label} as="div" className="contact-card" delay={i * 0.1} y={30}>
-                {card.href ? <a href={card.href} className="contact-link">{inner}</a> : inner}
-              </Reveal>
-            );
-          })}
-        </div>
+          {/* 1. Email Us */}
+          <article className="contact-item">
+            <div className="contact-item-header">
+              <div className="contact-icon" aria-hidden="true">
+                <Mail size={22} />
+              </div>
+              <h3 className="contact-item-title">Email Us</h3>
+            </div>
+            <p className="contact-item-value">{email}</p>
+            <div className="contact-item-footer">
+              <a
+                href={`mailto:${email}`}
+                className="contact-link"
+                aria-label={`Send an email to ${email}`}
+              >
+                <span>Send an email</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
 
-        <Reveal className="contact-cta" delay={0.2}>
-          <motion.a
-            href={`mailto:${company.email}`}
-            className="btn btn-primary"
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.3 }}
-          >
-            Get in Touch
-            <ArrowRight size={18} />
-          </motion.a>
-        </Reveal>
+          {/* 2. Call Us */}
+          <article className="contact-item">
+            <div className="contact-item-header">
+              <div className="contact-icon" aria-hidden="true">
+                <Phone size={22} />
+              </div>
+              <h3 className="contact-item-title">Call Us</h3>
+            </div>
+            <p className="contact-item-value">{phone}</p>
+            <div className="contact-item-footer">
+              <a
+                href={`tel:${phoneRaw}`}
+                className="contact-link"
+                aria-label={`Call us at ${phone}`}
+              >
+                <span>Call us</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+
+          {/* 3. Visit Us */}
+          <article className="contact-item">
+            <div className="contact-item-header">
+              <div className="contact-icon" aria-hidden="true">
+                <MapPin size={22} />
+              </div>
+              <h3 className="contact-item-title">Visit Us</h3>
+            </div>
+            <p className="contact-item-value">{address}</p>
+            <div className="contact-item-footer">
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link"
+                aria-label={`Get directions to ${address}`}
+              >
+                <span>Get directions</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   );
