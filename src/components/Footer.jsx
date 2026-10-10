@@ -1,5 +1,5 @@
 import { company, navLinks } from '../data/content.js';
-import Logo from './Logo.jsx';
+import footerLogo from '../assets/logo/madina-mart-logo-1.png';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +9,21 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <Logo variant="light" />
+            <a
+              href="#home"
+              className="brand-logo-link brand-logo-light"
+              aria-label="Madina Mart - Home"
+            >
+              <img
+                src={footerLogo}
+                alt="Madina Mart"
+                className="brand-logo-img"
+                width="1024"
+                height="151"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
           </div>
 
           <p className="footer-statement">Everyday essentials, thoughtfully selected for your home.</p>

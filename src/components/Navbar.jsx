@@ -186,18 +186,6 @@ export default function Navbar() {
           <a className="icon-btn" href={`tel:${company.phoneRaw}`} aria-label="Call Manar Market">
             <Phone size={19} />
           </a>
-          <motion.a
-            href="#categories"
-            className="btn btn-primary nav-cta"
-            whileHover={shouldReduceMotion ? {} : { y: -2 }}
-            transition={{ duration: 0.3 }}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('#categories', true);
-            }}
-          >
-            Explore Products
-          </motion.a>
           <button
             type="button"
             className="icon-btn menu-toggle"
