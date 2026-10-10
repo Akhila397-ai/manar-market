@@ -4,12 +4,10 @@ import {
   Award,
   BadgePercent,
   CheckCircle2,
-  Clock,
   Heart,
   HeartHandshake,
   Leaf,
   ShieldCheck,
-  Sparkles,
 } from 'lucide-react';
 import SafeImage from './SafeImage.jsx';
 import { Reveal, Stagger, StaggerItem } from './Reveal.jsx';
@@ -20,42 +18,42 @@ import heroFresh from '../assets/images/hero/hero-fresh.webp';
 import heroGroceries from '../assets/images/hero/hero-groceries.webp';
 import heroStaples from '../assets/images/hero/hero-staples.webp';
 
-// Three refined promise cards
+// Three concise promise cards
 const promises = [
   {
     icon: Leaf,
     title: 'Freshness',
-    text: 'Sourced daily from trusted regional growers and verified suppliers. We bring crisp fruits, farm vegetables, and wholesome dairy to your kitchen at peak flavor and nutritional vitality.',
+    text: 'Fresh fruits, vegetables, and wholesome dairy delivered daily from trusted suppliers.',
   },
   {
     icon: Award,
     title: 'Quality',
-    text: 'Rigorous selection standards for every brand and essential product. We ensure consistent purity, safety, and trusted household performance across all our aisles.',
+    text: 'Rigorous selection standards ensuring safe and dependable household essentials.',
   },
   {
     icon: Heart,
     title: 'Community',
-    text: 'More than a market—a welcoming neighborhood cornerstone. We cultivate lasting trust with UAE families through courteous assistance, genuine care, and transparent everyday value.',
+    text: 'A welcoming market dedicated to courteous service and honest everyday value.',
   },
 ];
 
 // Everything Under One Roof convenience items
 const roofHighlights = [
   {
-    title: 'Farm-Fresh Produce & Dairy',
-    detail: 'Daily deliveries of crisp fruits, crisp greens, farm dairy, and chilled staples.',
+    title: 'Produce & Dairy',
+    detail: 'Fresh fruits, vegetables, farm dairy, and chilled staples.',
   },
   {
-    title: 'Pantry Staples & Global Groceries',
-    detail: 'Finest grains, cooking oils, aromatic spices, and international favorites.',
+    title: 'Pantry & Groceries',
+    detail: 'Grains, cooking oils, spices, and everyday staples.',
   },
   {
-    title: 'Household & Home Care Essentials',
-    detail: 'Trusted cleaning supplies, detergents, and everyday household products.',
+    title: 'Household Care',
+    detail: 'Cleaning supplies, laundry care, and household paper.',
   },
   {
-    title: 'Personal Care & Lifestyle Necessities',
-    detail: 'Wholesome hygiene, bath, and daily wellness essentials for the entire family.',
+    title: 'Personal Care',
+    detail: 'Hygiene, bath, and family wellness essentials.',
   },
 ];
 
@@ -64,22 +62,22 @@ const commitments = [
   {
     icon: Leaf,
     title: 'Guaranteed Freshness',
-    text: 'Daily replenishments ensuring vitality in every fresh purchase.',
+    text: 'Daily arrivals keeping your kitchen stocked with fresh food.',
   },
   {
     icon: ShieldCheck,
     title: 'Dependable Quality',
-    text: 'Carefully vetted brands and safe, authentic household items.',
+    text: 'Reliable brands and safe everyday products.',
   },
   {
     icon: BadgePercent,
     title: 'Everyday Fair Value',
-    text: 'Honest, accessible pricing with no compromise on excellence.',
+    text: 'Competitive and honest pricing across every aisle.',
   },
   {
     icon: HeartHandshake,
     title: 'Attentive Customer Care',
-    text: 'Warm, respectful service that makes every visit welcoming.',
+    text: 'Helpful, respectful staff ready to assist you.',
   },
 ];
 
@@ -92,20 +90,17 @@ export default function About() {
           <Reveal as="header" className="about-hero-header">
             <span className="about-eyebrow">About Manar Market</span>
             <h1 className="about-hero-headline">
-              More Than Shopping.
-              <br />
-              A Part of Your Everyday Life.
+              Quality Essentials for Everyday Living.
             </h1>
             <p className="about-hero-lead">
-              Serving households across the UAE with wholesome freshness, dependable quality, and
-              warm neighborhood care. We make everyday living simpler, healthier, and more enjoyable.
+              Serving UAE households with fresh food, quality groceries, and friendly neighborhood service.
             </p>
           </Reveal>
 
           <ImageReveal className="about-hero-media">
             <SafeImage
               src={heroFresh}
-              alt="Vibrant fresh produce and organic fruits at Manar Market"
+              alt="Fresh produce and organic fruits at Manar Market"
               loading="eager"
             />
           </ImageReveal>
@@ -113,19 +108,19 @@ export default function About() {
           <div className="about-hero-stats">
             <div className="about-stat-item">
               <strong>Decades</strong>
-              <span>of trusted service across the UAE</span>
+              <span>Trusted service in the UAE</span>
             </div>
             <div className="about-stat-item">
               <strong>Daily Fresh</strong>
-              <span>farm harvests & wholesome essentials</span>
+              <span>Produce and dairy daily</span>
             </div>
             <div className="about-stat-item">
               <strong>One Destination</strong>
-              <span>groceries, home care & lifestyle needs</span>
+              <span>Groceries and household needs</span>
             </div>
             <div className="about-stat-item">
               <strong>Family First</strong>
-              <span>courteous service & genuine care</span>
+              <span>Attentive customer care</span>
             </div>
           </div>
         </div>
@@ -146,29 +141,17 @@ export default function About() {
               <Reveal as="header">
                 <span className="about-eyebrow">Our Story</span>
                 <h2 className="about-section-heading">
-                  Rooted in Trust.
-                  <br />
-                  Growing with Our Communities.
+                  A Trusted Market for UAE Families
                 </h2>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <div className="about-text-body">
                   <p>
-                    With decades of dedicated service across the UAE, Manar Market has grown alongside the
-                    families, neighborhoods, and communities we are honored to serve. What began as a humble
-                    commitment to honest neighborhood retail has blossomed into a cherished shopping destination
-                    built on mutual trust and genuine connection.
+                    Manar Market has grown alongside local communities to deliver everyday groceries and household essentials at honest prices.
                   </p>
                   <p>
-                    We believe the table is the center of the home. That is why we dedicate ourselves to sourcing
-                    uncompromising freshness, dependable quality, and honest everyday value across our extensive
-                    selection—from crisp farm-fresh produce and wholesome grocery staples to household essentials
-                    and everyday lifestyle necessities.
-                  </p>
-                  <p>
-                    Our journey continues with an enduring mission: keeping daily shopping effortless, welcoming,
-                    and rewarding for every generation of shoppers who walk through our doors.
+                    We focus on fresh food, dependable quality, and convenient shopping for your family's daily needs.
                   </p>
                 </div>
               </Reveal>
@@ -182,9 +165,9 @@ export default function About() {
         <div className="container">
           <Reveal as="header" className="about-center-header">
             <span className="about-eyebrow">Our Promise</span>
-            <h2 className="about-section-heading">Guiding Principles in Everything We Do</h2>
+            <h2 className="about-section-heading">Standards Behind Everything We Do</h2>
             <p className="about-section-lead">
-              Three steadfast commitments form the foundation of our standards, our sourcing, and our service.
+              Our principles guide how we source products and care for our customers.
             </p>
           </Reveal>
 
@@ -218,15 +201,13 @@ export default function About() {
 
             <div className="about-roof-content">
               <Reveal as="header">
-                <span className="about-eyebrow">Complete Convenience</span>
+                <span className="about-eyebrow">Convenience</span>
                 <h2 className="about-section-heading">Everything Under One Roof</h2>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <p className="about-intro-p">
-                  Your time is precious, and managing a household should be simple. Manar Market brings together
-                  every facet of your daily shopping list—from fresh cooking ingredients to everyday home
-                  care—in one elegantly organized, spacious market.
+                  Find all your household groceries and daily supplies in one spacious, well-organized market.
                 </p>
 
                 <ul className="about-highlights-list">
@@ -274,27 +255,19 @@ export default function About() {
             <div className="about-community-content">
               <Reveal as="header">
                 <span className="about-eyebrow">Our Community</span>
-                <h2 className="about-section-heading">Serving with Warmth and Genuine Care</h2>
+                <h2 className="about-section-heading">Friendly Service for Every Customer</h2>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <div className="about-text-body">
                   <p>
-                    Community is not just where we operate—it is the heart of why we exist. Over the years,
-                    we have had the privilege of serving generations of families, learning the rhythms of
-                    their daily needs, and greeting familiar faces with warmth and respect.
-                  </p>
-                  <p>
-                    We believe that exceptional customer service starts with active listening, meticulous
-                    store hygiene, and an inviting atmosphere where shoppers never feel rushed. Every team
-                    member is dedicated to making your visit pleasant, effortless, and reliably fulfilling.
+                    We are committed to providing clean aisles, well-stocked shelves, and courteous assistance for every shopper.
                   </p>
                 </div>
 
                 <div className="about-quote-box">
                   <p>
-                    “True retail excellence is rooted in human care. Every fresh delivery, every clean aisle,
-                    and every fair price is our promise of respect to the families who choose us.”
+                    “Quality products, fair prices, and reliable service for every household.”
                   </p>
                 </div>
               </Reveal>
@@ -308,10 +281,9 @@ export default function About() {
         <div className="container">
           <Reveal as="header" className="about-center-header">
             <span className="about-eyebrow">Our Commitment</span>
-            <h2 className="about-section-heading">Standards We Stand Behind Daily</h2>
+            <h2 className="about-section-heading">Our Daily Standards</h2>
             <p className="about-section-lead">
-              A concise promise to every customer: freshness, quality, everyday value, effortless convenience,
-              and genuine care in every visit.
+              Clear standards for freshness, quality, and honest value on every visit.
             </p>
           </Reveal>
 
@@ -336,13 +308,12 @@ export default function About() {
       <section className="about-closing">
         <div className="container">
           <Reveal className="about-closing-inner">
-            <span className="about-eyebrow-light">Manar Hypermarket</span>
+            <span className="about-eyebrow-light">Manar Market</span>
             <h2 className="about-closing-headline">
-              Good Choices. Genuine Care. Everyday Value.
+              Fresh Choices. Honest Value.
             </h2>
             <p className="about-closing-text">
-              Experience the difference of a neighborhood hypermarket dedicated to quality, freshness, and
-              honest prices. Step into Manar Market today or discover our offerings online.
+              Visit Manar Market in Ajman for fresh produce, quality groceries, and friendly neighborhood service.
             </p>
             <div className="about-closing-actions">
               <motion.a
@@ -360,7 +331,7 @@ export default function About() {
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                Visit Our Store
+                Contact Us
               </motion.a>
             </div>
           </Reveal>
