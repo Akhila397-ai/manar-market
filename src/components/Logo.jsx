@@ -1,20 +1,27 @@
-import madinaMartLogo from '../assets/logo/madina-mart-logo.webp';
-import madinaMartLogoLight from '../assets/logo/madina-mart-logo-1.png';
+import manarMarketLogo from '../assets/logo/manar-market-logo.png';
+import manarMarketLogoLight from '../assets/logo/manar-market-logo-light.png';
 
-// Official Madina Mart logo component
-export default function Logo({ variant = 'default', className = '' }) {
+export default function Logo({
+  variant = 'default',
+  className = '',
+}) {
   const isLight = variant === 'light';
-  const logoSrc = isLight ? madinaMartLogoLight : madinaMartLogo;
+
+  const logoSrc = isLight
+    ? manarMarketLogoLight
+    : manarMarketLogo;
 
   return (
     <a
       href="#home"
-      className={`brand-logo-link ${isLight ? 'brand-logo-light' : ''} ${className}`}
-      aria-label="Madina Mart - Home"
+      className={`brand-logo-link ${
+        isLight ? 'brand-logo-light' : ''
+      } ${className}`.trim()}
+      aria-label="Manar Market - Home"
     >
       <img
         src={logoSrc}
-        alt="Madina Mart"
+        alt="Manar Market"
         className="brand-logo-img"
         width="1024"
         height="151"
