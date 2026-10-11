@@ -126,40 +126,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* 2. Our Story Section */}
-      <section className="about-section about-section-alt">
-        <div className="container">
-          <div className="about-split">
-            <ImageReveal className="about-story-media">
-              <SafeImage
-                src={aboutImg}
-                alt="Inside Manar Market aisles stocked with everyday essentials"
-              />
-            </ImageReveal>
-
-            <div className="about-story-content">
-              <Reveal as="header">
-                <span className="about-eyebrow">Our Story</span>
-                <h2 className="about-section-heading">
-                  A Trusted Market for UAE Families
-                </h2>
-              </Reveal>
-
-              <Reveal delay={0.1}>
-                <div className="about-text-body">
-                  <p>
-                    Manar Market has grown alongside local communities to deliver everyday groceries and household essentials at honest prices.
-                  </p>
-                  <p>
-                    We focus on fresh food, dependable quality, and convenient shopping for your family's daily needs.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 3. Our Promise Section */}
       <section className="about-section">
         <div className="container">

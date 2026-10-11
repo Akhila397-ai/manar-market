@@ -1,95 +1,121 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { company } from '../data/content.js';
+import { EASE } from './Reveal.jsx';
 
 export default function Contact() {
+  const shouldReduceMotion = useReducedMotion();
+
   const email = company?.email || 'info@manarmarket.ae';
-  const phone = company?.phone || '067491880';
-  const phoneRaw = company?.phoneRaw || '067491880';
-  const address = company?.address || 'Industrial 2, Ajman, UAE';
-  const mapUrl = `https://maps.google.com/?q=${encodeURIComponent(address)}`;
+  const phone = company?.phone || '+971 067491880';
+  const phoneRaw = company?.phoneRaw || '+971 067491880';
+
+  const contactRows = [
+    {
+      num: '01',
+      tag: 'EMAIL',
+      value: email,
+      label: 'Send us an email',
+      href: `mailto:${email}`,
+      ariaLabel: `Send us an email at ${email}`,
+    },
+    {
+      num: '02',
+      tag: 'PHONE',
+      value: phone,
+      label: 'Speak with our team',
+      href: `tel:${phoneRaw}`,
+      ariaLabel: `Speak with our team at ${phone}`,
+    },
+  ];
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: 22 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: EASE },
+    },
+  };
+
+  const rowsContainerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.16,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const rowItemVariants = {
+    hidden: { opacity: 0, y: 26 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: EASE },
+    },
+  };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="container contact-container">
-        {/* Existing heading section preserved exactly */}
-        <header className="contact-header">
-          <span className="contact-eyebrow">We're Here to Help</span>
-          <h2 className="contact-title">Let's Talk.</h2>
-          <p className="contact-description">
-            Good service starts with a conversation. We'd love to hear from you.
+    <section id="contact" className="contact-editorial-section">
+      <div className="container contact-editorial-container">
+        {/* Introductory Section with Scroll Entrance Animation */}
+        <motion.header
+          className="contact-editorial-header"
+          initial={shouldReduceMotion ? false : 'hidden'}
+          whileInView={shouldReduceMotion ? undefined : 'show'}
+          viewport={{ once: true, amount: 0.2 }}
+          variants={headerVariants}
+        >
+          <span className="contact-editorial-eyebrow">
+            <span className="contact-editorial-status-dot" aria-hidden="true" />
+            CONTACT / MANAR MARKET
+          </span>
+          <h2 className="contact-editorial-title">
+            Let's talk. <span className="contact-editorial-accent">We're listening.</span>
+          </h2>
+          <p className="contact-editorial-description">
+            Questions about Manar Market? We'd be happy to hear from you.
           </p>
-        </header>
+        </motion.header>
 
-        {/* Thin light-grey divider */}
-        <div className="contact-divider" aria-hidden="true" />
-
-        {/* Three evenly spaced columns directly below introduction */}
-        <div className="contact-grid">
-          {/* 1. Email Us */}
-          <article className="contact-item">
-            <div className="contact-item-header">
-              <div className="contact-icon" aria-hidden="true">
-                <Mail size={22} />
+        {/* Contact Information with Staggered Entrance Animation */}
+        <motion.div
+          className="contact-editorial-rows"
+          role="list"
+          aria-label="Contact methods"
+          initial={shouldReduceMotion ? false : 'hidden'}
+          whileInView={shouldReduceMotion ? undefined : 'show'}
+          viewport={{ once: true, amount: 0.2 }}
+          variants={rowsContainerVariants}
+        >
+          {contactRows.map((row) => (
+            <motion.a
+              key={row.num}
+              href={row.href}
+              className="contact-editorial-row"
+              aria-label={row.ariaLabel}
+              role="listitem"
+              variants={rowItemVariants}
+            >
+              <div className="contact-row-meta">
+                <span className="contact-row-num">{row.num}</span>
+                <span className="contact-row-tag">{row.tag}</span>
               </div>
-              <h3 className="contact-item-title">Email Us</h3>
-            </div>
-            <p className="contact-item-value">{email}</p>
-            <div className="contact-item-footer">
-              <a
-                href={`mailto:${email}`}
-                className="contact-link"
-                aria-label={`Send an email to ${email}`}
-              >
-                <span>Send an email</span>
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </article>
 
-          {/* 2. Call Us */}
-          <article className="contact-item">
-            <div className="contact-item-header">
-              <div className="contact-icon" aria-hidden="true">
-                <Phone size={22} />
+              <div className="contact-row-content">
+                <span className="contact-row-value">{row.value}</span>
+                <span className="contact-row-label">{row.label}</span>
               </div>
-              <h3 className="contact-item-title">Call Us</h3>
-            </div>
-            <p className="contact-item-value">{phone}</p>
-            <div className="contact-item-footer">
-              <a
-                href={`tel:${phoneRaw}`}
-                className="contact-link"
-                aria-label={`Call us at ${phone}`}
-              >
-                <span>Call us</span>
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </article>
 
-          {/* 3. Visit Us */}
-          <article className="contact-item">
-            <div className="contact-item-header">
-              <div className="contact-icon" aria-hidden="true">
-                <MapPin size={22} />
+              <div className="contact-row-action" aria-hidden="true">
+                <ArrowUpRight size={18} />
               </div>
-              <h3 className="contact-item-title">Visit Us</h3>
-            </div>
-            <p className="contact-item-value">{address}</p>
-            <div className="contact-item-footer">
-              <a
-                href={mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link"
-                aria-label={`Get directions to ${address}`}
-              >
-                <span>Get directions</span>
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </article>
-        </div>
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

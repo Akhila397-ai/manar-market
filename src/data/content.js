@@ -25,8 +25,8 @@ import ctaImg from '../assets/images/cta/cta.webp';
 export const company = {
   name: 'Manar Market',
   address: 'Industrial 2, Ajman, UAE',
-  phone: '067491880',
-  phoneRaw: '067491880',
+  phone: '+971 067491880',
+  phoneRaw: '+971 067491880',
   email: 'info@manarmarket.ae',
   website: 'www.manarmarket.ae',
   websiteUrl: 'https://www.manarmarket.ae',
