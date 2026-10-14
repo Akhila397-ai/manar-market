@@ -8,7 +8,7 @@ import {
   Twitter,
 } from 'lucide-react';
 import { company } from '../data/content.js';
-import footerLogo from '../assets/logo/madina-mart-logo-1.png';
+import footerLogo from '../assets/logo/manar-market-footer-logo.png';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -56,14 +56,14 @@ export default function Footer() {
             <a
               href="#home"
               className="footer-logo-link"
-              aria-label="Madina Mart - Home"
+              aria-label="Manar Market - Home"
             >
               <img
                 src={footerLogo}
-                alt="Madina Mart"
+                alt="Manar Market"
                 className="footer-logo-img"
-                width="1024"
-                height="151"
+                width="959"
+                height="105"
                 loading="lazy"
                 decoding="async"
               />

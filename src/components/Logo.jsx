@@ -24,7 +24,7 @@ export default function Logo({
         alt="Manar Market"
         className="brand-logo-img"
         width="1024"
-        height="151"
+        height="113"
         loading="eager"
         decoding="async"
       />
